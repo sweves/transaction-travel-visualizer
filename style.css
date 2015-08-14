@@ -1,0 +1,34 @@
+      #tooltip {
+        float: right;
+        height: 800px;
+        width: 500px;
+
+      }
+      #circle circle {
+        fill: none;
+        pointer-events: all;
+      }
+      path.group {
+        fill-opacity: .8;
+      }
+      path.chord {
+        fill-opacity: .8;
+        stroke: #000;
+        stroke-width: .25px;
+      }
+      #circle:hover path.fade {
+        display: none;
+      }
+      text{
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+      }
+      #holder{
+        margin-top: 50px;
+        margin-left: 50px;
+      
+      }
+      h1, p{
+        font-family: 'Roboto', sans-serif;
+      }
