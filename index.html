@@ -69,7 +69,7 @@
           .enter().append("svg:g")
             .attr("class", "group")
             .on("mouseover", mouseover)
-            // .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+            .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
 
         g.append("svg:path")
             //.style("stroke", "black")
@@ -101,17 +101,19 @@
                   d3.select("#tooltip")
                     .style("visibility", "visible")
                     .html(chordTip(rdr(d)))
-                    .style("top", function () { return (d3.event.pageY - 100)+"px"})
-                    .style("left", function () { return (d3.event.pageX - 100)+"px";})
+                    // .style("top", function () { return (d3.event.pageY - 100)+"px"})
+                    // .style("left", function () { return (d3.event.pageX - 100)+"px";})
                 })
-                .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+                .on("mouseout", function (d) { 
+                  d3.select("#tooltip")
+                  .style("visibility", "hidden") });
 
           function chordTip (d) {
             var p = d3.format(".2%"), q = d3.format(",.3r")
             return "<p>"
               + p(d.svalue/d.stotal) + " (" + q(d.svalue) + ") of "
               + d.sname + " travel to " + d.tname
-              + (d.sname === d.tname ? "": ("<br/><br/>"
+              + (d.sname === d.tname ? "": ("<br/>"
               + p(d.tvalue/d.ttotal) + " (" + q(d.tvalue) + ") of "
               + d.tname + " travel to " + d.sname)) + "</p>"
           }
@@ -119,16 +121,21 @@
           function groupTip (d) {
             var p = d3.format(".1%"), q = d3.format(",.3r")
             return "<h1> "
-                + d.gname + " </h1><br/> " + q(d.gvalue) + " total transactions<br/>"
-                + p(d.gvalue/d.mtotal) + " of Global Transactions (" + q(d.mtotal) + " overall)"
+                + d.gname + " </h1><p class='number'> " + q(d.gvalue) + " </p><p class='sub'>total transactions<br/></p><p class='number'>"
+                + p(d.gvalue/d.mtotal) + " </p><p class='sub'>of Global Transactions (" + q(d.mtotal) + " overall)</p>"
           }
 
           function mouseover(d, i) {
             d3.select("#tooltip")
               .style("visibility", "visible")
               .html(groupTip(rdr(d)))
-              // .style("top", function () { return (d3.event.pageY - 80)+"px"})
-              // .style("left", function () { return (d3.event.pageX - 130)+"px";})
+              // .style("position", "fixed")
+              // .style("right", "0")
+              .style("height", "800")
+              .style("margin-right", "50px")
+              .style("position", "absolute")
+              .style("left", "1100px")
+              .style("width", "350px")
 
             chordPaths.classed("fade", function(p) {
               return p.source.index != i
@@ -195,9 +202,11 @@
       
 
     </script>
-    
-    <div id="tooltip"></div>
-    <div id="holder"></div>
+
+    <div class="container">
+      <div id="tooltip"></div>
+      <div id="holder"></div>
+    </div>
 
   </body>
 </html>

@@ -1,29 +1,39 @@
+      .container{
+        position: absolute;
+      }
+
       #tooltip {
-        float: right;
+        position: absolute;
         height: 800px;
-        width: 500px;
+        margin-right: 50px;
 
       }
+
       #circle circle {
         fill: none;
         pointer-events: all;
       }
+
       path.group {
         fill-opacity: .8;
       }
+
       path.chord {
         fill-opacity: .8;
         stroke: #000;
         stroke-width: .25px;
       }
+
       #circle:hover path.fade {
         display: none;
       }
+
       text{
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
       }
+
       #holder{
         margin-top: 50px;
         margin-left: 50px;
@@ -31,4 +41,24 @@
       }
       h1, p{
         font-family: 'Roboto', sans-serif;
+        margin:0px;
+
       }
+
+      h1{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        margin-top: 200px;
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      .sub{
+        margin-bottom: 10px;
+      }
+
+      .number{
+        font-size: 30px;
+      }
+
