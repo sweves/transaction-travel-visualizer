@@ -1,6 +1,7 @@
 //*******************************************************************
 //  CHORD MAPPER 
 //*******************************************************************
+
 function chordMpr (data) {
   var mpr = {}, mmap = {}, n = 0,
       matrix = [], filter, accessor;
@@ -50,9 +51,11 @@ function chordMpr (data) {
   }
   return mpr;
 }
+
 //*******************************************************************
 //  CHORD READER
 //*******************************************************************
+
 function chordRdr (matrix, mmap) {
   return function (d) {
     var i,j,s,t,g,m = {};
