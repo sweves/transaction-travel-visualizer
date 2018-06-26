@@ -42,6 +42,13 @@
         display: none;
       }
 
+      a,
+      a:hover {
+        text-decoration: none;
+        color: rgb(255, 133, 0);
+        font-size: 50%;
+      }
+
       text{
         text-transform: uppercase;
         letter-spacing: 1px;
